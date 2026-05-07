@@ -54,7 +54,12 @@ if st.button("Predict"):
         f"Predicted Occupancy: {prediction[0]:.2f}"
     )
 
-    if prediction[0] > 85:
-        st.error("⚠ High Occupancy Risk")
+    if prediction[0] < 10:
+      st.success("✅ Low Occupancy")
+
+    elif prediction[0] < 13:
+      st.warning("⚠ Moderate Occupancy")
+
     else:
-        st.success("✅ Occupancy Normal")
+      st.error("🚨 High Occupancy Risk")
+        
